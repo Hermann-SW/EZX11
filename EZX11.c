@@ -1,5 +1,10 @@
 #include <assert.h>
 
+int return_old_assign(int *old, int new) {
+  int save = *old;
+  return *old = new, save;
+}
+
 #include "ezxdisp.h"
 
 #include <X11/Xutil.h>
@@ -89,8 +94,7 @@ void EZX_EndWindow(EZXW_p w) {
 
 
 int  EZX_SetColor(int color) {
-  int save = EZX_col;
   assert((0 <= color) && (color < MAXCOLORS));
-  return EZX_col = color, save;
+  return return_old_assign(&EZX_col, color);
 }
 

@@ -1,0 +1,3 @@
+[submodule "ezxdisp"]
+	path = ezxdisp
+	url = git@github.com:Hermann-SW/ezxdisp.git

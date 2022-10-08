@@ -1,20 +1,10 @@
 
 #include "EZX11.h"
 
-main()
+int main()
   {
   int i,x,y;
   EZXW_p w;
-
-if (0)
-  {
-  EZXW_p H;
-
-  H = EZX_MakeWindow("Horvert",10,10,"+100+100");
-  EZX_GetAndForgetCursor();
-
-  EZX_EndWindow(H);
-  }
 
   w = EZX_MakeWindow("ColorSelect",900,600,"+50+50");
 
@@ -25,7 +15,7 @@ if (0)
     EZX_FillRectangle(w,100*(i%9),100*(i/9),100,100);
     }
 
-  EZX_GetCursor(&x,&y);
+  EZX_GetCursor(w,&x,&y);
 
   EZX_EndWindow(w);
 

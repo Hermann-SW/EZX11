@@ -26,16 +26,9 @@ typedef struct { short x, y; } XPoint;
 void *Display;
 #endif
 
-typedef struct {
-   char title[64];
-   int  width, height;
-   Window w;
-   GC gc;
-   int x,y;
-#if defined(__t800__) || defined(__t800emu__)
-   void *sunW_p;
-#endif
-}  EZXW_t, *EZXW_p;
+#include "ezxdisp/include/ezxdisp.h"
+
+typedef ezx_t  EZXW_t, *EZXW_p;
 
 
 typedef struct {
@@ -176,7 +169,7 @@ void   EZX_IconifyWindow ( EZXW_p W );
 /* cursor routines */
 
 void EZX_bell         	(void);
-int  EZX_GetCursor    	(int *xp, int *yp);
+int  EZX_GetCursor    	(EZXW_p w, int *xp, int *yp);
 int  EZX_GetCursorw   	(int *xp, int *yp, Window *win);
 int  EZX_TestGetCursor	(EZXW_p w, int *xp, int *yp);
 int  EZX_TestCursor   	(EZXW_p w);

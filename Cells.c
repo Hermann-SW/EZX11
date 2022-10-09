@@ -2,9 +2,6 @@
 #include <math.h>
 #include <time.h>
 
-long random(void);
-void srandom(int seed);
-
 
 #define radius 400
 #define margin 20
@@ -198,8 +195,8 @@ int main(int argc, char*argv[])
 
   N = atoi(argv[1]);
   Rinit = atof(argv[2]);
-  eps = (argc<4) ? 0.001 : atof(argv[3]);
-  red = (argc<5) ? 0.5 : atof(argv[4]);
+  eps = (argc<5) ? 0.001 : atof(argv[4]);
+  red = (argc<6) ? 0.5 : atof(argv[5]);
 
   sprintf(title,"Cells");
 

@@ -4,7 +4,7 @@ LDFLAGS = -Lezxdisp/src/x11 EZX11.o -lezx
 
 X11_LIB = -lX11
 
-SAMPLES = CT
+SAMPLES = CT Cells
 SAMPLES_OBJS = $(SAMPLES:=.o)
 
 all:	libezx.a EZX11.o $(SAMPLES_OBJS) $(SAMPLES)

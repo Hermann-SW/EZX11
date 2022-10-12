@@ -69,18 +69,12 @@ void EZX_FillRectangle(ezx_t *e, int x, int y, unsigned w, unsigned h) {
 
 
 int  EZX_GetCursor    	(EZXW_p w, int *xp, int *yp) {
-  ezx_event_t ev;
   ezx_redraw(w);
-  do {
-    ezx_next_event(w, &ev);
-  }
-  while (ev.type != EZX_BUTTON_PRESS);
-  *xp = ev.button.x;
-  *yp = ev.button.y;
+  int but = ezx_pushbutton(w, xp, yp);
 
-    if (ev.button.b == Button1) return(LEFT_BUTTON);
-  else if (ev.button.b == Button2) return(MIDDLE_BUTTON);
-  else if (ev.button.b == Button3) return(RIGHT_BUTTON);
+       if (but == Button1) return(LEFT_BUTTON);
+  else if (but == Button2) return(MIDDLE_BUTTON);
+  else if (but == Button3) return(RIGHT_BUTTON);
 
   return(OTHER_BUTTON);
 }
